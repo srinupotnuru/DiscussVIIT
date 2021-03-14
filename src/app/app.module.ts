@@ -9,7 +9,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent} from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { CategoriesComponent } from './categories/categories.component'
+import { CategoriesComponent } from './categories/categories.component';
+import {AngularFireModule} from '@angular/fire'
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,23 @@ import { CategoriesComponent } from './categories/categories.component'
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    NgbModule
+    NgbModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(
+      {
+        apiKey: "AIzaSyDVcWfJcmHdqxTdTaCjtnpbAPVL46LIbEk",
+        authDomain: "discussviit-cd500.firebaseapp.com",
+        projectId: "discussviit-cd500",
+        storageBucket: "discussviit-cd500.appspot.com",
+        messagingSenderId: "682058077917",
+        appId: "1:682058077917:web:d4ea8645d44a6b459ead34"
+      }
+    ),
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    
+    
+    
   ],
   exports:[BsDropdownModule,TooltipModule,ModalModule],
   providers: [],

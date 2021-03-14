@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "discussviit-cd500": {
+      "hosting": {
+        "DiscussVIIT": [
+          "discussviit-cd500"
+        ]
+      }
+    }
+  }
+}
