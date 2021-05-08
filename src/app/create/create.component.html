@@ -29,8 +29,7 @@
               <textarea class="form-control"
                 formControlName="body"
                 rows="8"
-                placeholder="Write your article (in markdown)" id="desc">
-              </textarea>
+                placeholder="Write your article" id="desc"></textarea>
             </fieldset>
 
             <fieldset class="form-group">
@@ -39,11 +38,9 @@
                 placeholder="Enter tags"
                
                  />
-
-              
             </fieldset>
 
-            <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()">
+            <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()" [disabled]="this.flag">
               Publish Article
             </button>
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Subject, Observable } from 'rxjs';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,14 +12,16 @@ export class AppComponent {
   title = 'DiscussVIIT';
   call: Subject<Object> = new Subject<Object>();
   public user: Observable<Object> = this.call.asObservable();
-  constructor(private auth: AngularFireAuth, private fire: AngularFirestore) {
+  constructor(private auth: AngularFireAuth, private fire: AngularFirestore,private route:Router) {
     this.auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log("yoooo");
         sessionStorage.setItem('reload', 'false');
         this.setSession(user);
       }
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('all').style.filter = 'blur(0px)';
     });
+    
   }
 
   async setSession(user) {
@@ -43,5 +46,6 @@ export class AppComponent {
     info = JSON.stringify(info);
     sessionStorage.setItem('user', info);
     this.call.next('reload');
+    this.route.navigate(['home']);
   }
 }

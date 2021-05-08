@@ -1,28 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase/app';
 import { AppComponent } from '../app.component';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {Router} from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  selector: 'app-myarticles',
+  templateUrl: './myarticles.component.html',
+  styleUrls: ['./myarticles.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class MyarticlesComponent implements OnInit {
+ discussion=[];
   constructor(
     public auth: AngularFireAuth,
     private app: AppComponent,
-    private firestore: AngularFirestore,
-    private route:Router
-  ) {
+    private fire: AngularFirestore) {
     this.auth.authState.subscribe((res) => {
-      
+      console.log(res);
     });
     this.setUser();
     app.user.subscribe((go) => {
       this.setUser();
     });
+    this.getdiscussion();
+
+
+  }
+  getdiscussion()
+  {
+    
+    this.fire.collection('questions', ref => 
+  ref.where("uid", "==", this.user.email)).snapshotChanges().subscribe((docs)=>{
+    this.discussion=docs;
+    this.discussion=this.discussion.reverse();
+    
+  });
+
+
   }
   authState: boolean = false;
   user: any;
@@ -36,21 +49,8 @@ export class NavbarComponent implements OnInit {
       this.authState = false;
     }
   }
-   login() {
-    this.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider()).then(obj=>{
-    });
-    this.route.navigate(["categories"]);
-   
-     
-  }
-  logout() {
 
-    sessionStorage.clear();
-    this.auth.signOut();
-    this.setUser();
-    this.route.navigate(["home"]);
-   
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {}
 }

@@ -1,14 +1,23 @@
 <app-navbar></app-navbar>
+<div id="loading">
+    <div class="spinner">
+      <div class="cube1"></div>
+      <div class="cube2"></div>
+    </div>
+  </div>
 <div class="container-fluid">
     <div class="container-fluid">
         
         <div class="row">
             <div class="col-12 col-md-9">
-                <router-outlet></router-outlet>
+                <div id="all">
+                    <div id="top"></div>
+                    <router-outlet></router-outlet>
+                  </div>
             </div>
             <div class="col-12 col-md-3">
                 
-                <h1>Tags World</h1>
+                <h1>Popular Tags</h1>
             </div>
         </div>
     </div>

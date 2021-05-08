@@ -1,0 +1,25 @@
+img {
+    height: 50px;
+    width: auto;
+    border-radius: 30px;
+  }
+  time{
+    margin-left: auto;
+}
+.card-header{
+    display:flex;
+    
+}
+#th{
+    margin:10px;
+}
+.card{
+    height: 180px;
+    margin-bottom: 15px;
+}
+
+.card-text{
+    white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}

@@ -15,12 +15,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import { MyarticlesComponent } from './myarticles/myarticles.component';
+import { ShowComponent } from './show/show.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    MyarticlesComponent,
+    ShowComponent
   ],
   imports: [
     BrowserModule,
