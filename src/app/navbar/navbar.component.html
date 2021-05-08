@@ -10,6 +10,7 @@
                 <li class="nav-item"><a routerLink="/categories" class="nav-link">Categories</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Discussions</a></li>
                 <li class="nav-item" *ngIf="authState"><a href="#" class="nav-link">My Articles</a></li>
+                <li class="nav-item" *ngIf="authState"><a href="#" class="nav-link"routerLink="/create">Create Articles</a></li>
             </ul>
             
             <a class="navbar-brand" *ngIf="authState" href="#">{{user.name}}</a>

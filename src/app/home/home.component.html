@@ -1,20 +1,15 @@
-<div class="lis">
-    <hr class="my-4">
-    <div class="ques">
-        <div class="row">
-            <div class="col-2 pp">
-               <img src="https://www.w3schools.com/howto/img_avatar.png" alt=""> 
-            </div>
-            <div class="col-6 title">
-                <h3><a href="">Discussion Title</a></h3>
-            </div>
-           
-        </div>
-        <div class="row">
-           
-            
-        </div>
-        <span class="time">11:00  1-11-2018</span> 
+<div class="card" *ngFor="let item of discussions">
+    <div class="card-header">
+      <a href="javascript:;" class="avatar rounded-circle">
+        <img alt="Image placeholder" src="{{item.payload.doc.data().pic}}">
+      </a>
+      <h1 id="th">{{item.payload.doc.data().title}}</h1>
+      <time datetime="">April 1st, 2013</time>
     </div>
-    <hr class="my-4">
-</div>
+    <div class="card-body">
+      <p class="card-text">{{item.payload.doc.data().description }}</p>
+      <h4> <b><span>Category:</span></b> {{item.payload.doc.data().category}}</h4>
+    </div>
+  </div>
+ 
+  

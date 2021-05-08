@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import firebase from 'firebase/app';
+import  firebase from 'firebase/app';
 import { AppComponent } from '../app.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
@@ -36,11 +36,13 @@ export class NavbarComponent implements OnInit {
   }
   async login() {
     this.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    this.setUser();
      
   }
   logout() {
     sessionStorage.clear();
     this.auth.signOut();
+    this.setUser();
     window.location.reload();
   }
 

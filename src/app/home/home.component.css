@@ -12,6 +12,9 @@
 .lis{
     padding-top: 30px;
 }
+.card{
+    margin-bottom: 10px;
+}
 img {
     height: 50px;
     width: auto;
@@ -20,3 +23,14 @@ img {
   .time{
       float: right;
   }
+  .card-header{
+      display:flex;
+      
+  }
+  #th{
+      margin:10px;
+  }
+  .card{
+      height: 180px;
+  }
+  

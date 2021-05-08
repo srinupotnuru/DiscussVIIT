@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent} from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { CategoriesComponent } from './categories/categories.component';
@@ -14,7 +14,7 @@ import {AngularFireModule} from '@angular/fire'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ModalModule.forRoot(),
     NgbModule,
     AngularFireAuthModule,
+    MatButtonModule,
     AngularFireModule.initializeApp(
       {
         apiKey: "AIzaSyDVcWfJcmHdqxTdTaCjtnpbAPVL46LIbEk",
