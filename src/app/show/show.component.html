@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to Go Back</button>
+<button type="button" class="btn btn-sm btn-danger bt" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to Go Back</button>
 <b><h1>{{data.title}}</h1></b>
 
 <div class="media">
@@ -11,17 +11,21 @@
   <hr>
   <p>{{data.description}}</p>
   <hr>
-  <b><h2>Comments</h2></b>
   
+  <fieldset>
+    <div class="card-block">
+      <textarea placeholder="Write a comment..." rows="3" class="form-control ng-pristine ng-valid ng-touched" style="margin-top: 0px; margin-bottom: 0px; height: 102px;"></textarea>
+    </div>
+  </fieldset>
+  <nav class="navbar navbar-light bg-secondary">
+    <img class="comment-author-img" src="{{user.pic}}">
+    <button type="submit" class="btn btn-sm btn-primary"> Post Comment </button>
+  </nav>
+<b><h2>Comments</h2></b>
 <div class="comments">
-    <div class="media">
-        <img src="{{data.pic}}" class="mr-3" alt="...">
-        <div class="media-body">
-          <h3 class="mt-0">Mad Max</h3>
-          {{data.datetime | date}}
-        </div>
-        
-      </div>
-      <h3 class="cmt">Comments is placed here</h3>
-      <hr>
+    <nav class="navbar navbar-light bg-secondary cmt">
+      <span class="navbar-text">
+        Navbar text with an inline element
+      </span>
+    </nav>
 </div>
