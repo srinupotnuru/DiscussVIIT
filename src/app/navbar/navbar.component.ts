@@ -37,11 +37,13 @@ export class NavbarComponent implements OnInit {
     }
   }
    login() {
-    this.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider()).then(obj=>{
+     let provider=new firebase.auth.GoogleAuthProvider();
+     provider.setCustomParameters({
+      prompt: 'select_account'
     });
-    this.route.navigate(["categories"]);
-   
-     
+
+    this.auth.signInWithRedirect(provider);
+    this.route.navigate([''])
   }
   logout() {
 

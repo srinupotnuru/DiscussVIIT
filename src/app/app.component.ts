@@ -31,8 +31,6 @@ export class AppComponent {
     info['email'] = user.email;
     info['pic'] = user.photoURL;
     info['uid'] = user.uid;
-    info['qlist'] = [];
-
     let flag = await this.fire
       .collection('users')
       .doc(user.email)

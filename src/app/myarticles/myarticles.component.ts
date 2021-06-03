@@ -3,6 +3,7 @@ import  firebase from 'firebase/app';
 import { AppComponent } from '../app.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-myarticles',
   templateUrl: './myarticles.component.html',
@@ -13,7 +14,8 @@ export class MyarticlesComponent implements OnInit {
   constructor(
     public auth: AngularFireAuth,
     private app: AppComponent,
-    private fire: AngularFirestore) {
+    private fire: AngularFirestore,
+    private route:Router) {
     this.auth.authState.subscribe((res) => {
       console.log(res);
     });
@@ -49,7 +51,11 @@ export class MyarticlesComponent implements OnInit {
       this.authState = false;
     }
   }
-
+  display(item)
+  {
+    sessionStorage.setItem("item",JSON.stringify(item));
+    this.route.navigate(["show"]);
+  }
   ngOnInit(): void {
   }
 
