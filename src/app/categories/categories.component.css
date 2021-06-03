@@ -1,0 +1,11 @@
+
+  .carditem:hover{
+    box-shadow: 2px 2px 15px grey;
+  }
+  .carditem:active{
+    box-shadow: 2px 2px 20px grey;
+  }
+  .carditem{
+      margin-bottom: 2em;
+      max-height: 300px;
+  }

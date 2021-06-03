@@ -4,7 +4,8 @@ import { HomeComponent} from './home/home.component'
 import {CategoriesComponent} from './categories/categories.component'
 import {CreateComponent} from './create/create.component'
 import {MyarticlesComponent} from './myarticles/myarticles.component';
-import {ShowComponent} from './show/show.component'
+import {ShowComponent} from './show/show.component';
+import {CatDiscussionsComponent} from './cat-discussions/cat-discussions.component'
 const routes: Routes = [
   {
     path:'home',
@@ -27,9 +28,14 @@ const routes: Routes = [
     component:ShowComponent
   },
   {
+    path:'catdiscuss',
+    component:CatDiscussionsComponent
+  },
+  {
     path:'',
     component:HomeComponent
-  }
+  },
+  
 ];
 
 @NgModule({

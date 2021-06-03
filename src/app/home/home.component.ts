@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
         this.discussions=this.discussions.reverse();
         
       });
+      //console.log("discuss",this.discussions);
      
    }
   display(item)

@@ -1,0 +1,47 @@
+.views{
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+}
+.comments{
+    background-color: blue;
+    margin-left: 10px;
+    border-radius: 10px;
+    color: white;
+}
+.lis{
+    padding-top: 30px;
+}
+.card{
+    margin-bottom: 10px;
+}
+img {
+    height: 50px;
+    width: auto;
+    border-radius: 30px;
+  }
+  time{
+      margin-left: auto;
+  }
+  .card-header{
+      display:flex;
+      
+  }
+  #th{
+      margin:10px;
+  }
+  .card{
+      height: 180px;
+  }
+  
+  .card-text{
+       white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+  .carditem:hover{
+    box-shadow: 2px 2px 15px grey;
+  }
+  .carditem:active{
+    box-shadow: 2px 2px 20px grey;
+  }
