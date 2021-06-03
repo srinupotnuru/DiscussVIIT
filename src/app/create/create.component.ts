@@ -48,7 +48,7 @@ export class CreateComponent implements OnInit {
     let title : any=document.getElementById("title");
     let des:any=document.getElementById("desc");
     let cat:any=document.getElementById("cat");
-    console.log(title.value,des.value,cat.value);
+    //console.log(title.value,des.value,cat.value);
     info['title'] = title.value;
     info['uid'] = this.user.email;
     info['category']=cat.value;
@@ -58,9 +58,11 @@ export class CreateComponent implements OnInit {
     info['name']=this.user.name;
     let date: Date = new Date(); 
     let d=date.toString(); 
-    console.log(d);
+    
     info['datetime']=d;
     d=d+this.user.email;
+    info['qid']=d;
+    info['comments']=[{}];
     this.fire.collection('questions').doc(d).set(info).then(obj=>{
       this.flag=false;
       this.route.navigate(["home"]);

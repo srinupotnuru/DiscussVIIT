@@ -1,17 +1,21 @@
+<h1>{{data['category']}}  Discussions</h1>
 <div class="card" *ngFor="let item of discuss">
-    <div class="carditem" (click)="display(item.payload.doc.data())">
-        <div class="card-header">
-            <a href="javascript:;" class="avatar rounded-circle">
-              <img alt="Image placeholder" src="{{item.payload.doc.data().pic}}">
-            </a>
-            <h3 id="th">{{item.payload.doc.data().name}}</h3>
-            <time datetime="">April 1st, 2013</time>
-          </div>
-          <div class="card-body">
-           <b> <p3>{{item.payload.doc.data().title}}</p3> </b>
-            <p class="card-text">{{item.payload.doc.data().description }}</p>
-            <h4> <b><span>Category:</span></b> {{item.payload.doc.data().category}}</h4>
-          </div>
+    <div>
+
+        <div class="carditem" (click)="display(item.payload.doc.data())">
+            <div class="card-header">
+                <a href="javascript:;" class="avatar rounded-circle">
+                  <img alt="Image placeholder" src="{{item.payload.doc.data().pic}}">
+                </a>
+                <h3 id="th">{{item.payload.doc.data().name}}</h3>
+                <time datetime="">April 1st, 2013</time>
+              </div>
+              <div class="card-body">
+               <b> <p3>{{item.payload.doc.data().title}}</p3> </b>
+                <p class="card-text">{{item.payload.doc.data().description }}</p>
+                <h4> <b><span>Category:</span></b> {{item.payload.doc.data().category}}</h4>
+              </div>
+        </div>
     </div>
   </div>
  

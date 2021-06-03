@@ -13,6 +13,7 @@ export class CatDiscussionsComponent implements OnInit {
 
   data:any={};
   discuss=[];
+  temp=[];
   constructor(
     public auth: AngularFireAuth,
     private app: AppComponent,
@@ -31,11 +32,14 @@ export class CatDiscussionsComponent implements OnInit {
       .collectionGroup('questions')
       .snapshotChanges()
       .subscribe((docs) => {
-        this.discuss = docs;
-        this.discuss=this.discuss.reverse();
+        this.temp = docs;
+        this.discuss = this.temp.filter((value) => {
+          return value.payload.doc.data().category == this.data['category'];
+        });
+        this.temp = this.discuss;
         
       });
-      console.log("cat",this.discuss)
+     
    }
    display(item)
   {

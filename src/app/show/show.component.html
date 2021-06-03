@@ -9,23 +9,31 @@
     </div>
   </div>
   <hr>
+  <h3>{{data.category}}</h3>
+  <hr>
   <p style="white-space: pre-line">{{data.description}}</p>
   <hr>
   
-  <fieldset>
+  <fieldset *ngIf="authState">
     <div class="card-block">
-      <textarea placeholder="Write a comment..." rows="3" class="form-control ng-pristine ng-valid ng-touched" style="margin-top: 0px; margin-bottom: 0px; height: 102px;"></textarea>
+      <textarea placeholder="Write a comment..." rows="3" class="form-control ng-pristine ng-valid ng-touched" style="margin-top: 0px; margin-bottom: 0px; height: 102px;" id="cmt"></textarea>
     </div>
   </fieldset>
-  <nav class="navbar navbar-light bg-secondary">
+  <nav class="navbar navbar-light bg-secondary mb-4" *ngIf="authState">
     <img class="comment-author-img" src="{{user.pic}}">
-    <button type="submit" class="btn btn-sm btn-primary"> Post Comment </button>
+    <button type="submit" class="btn btn-sm btn-primary" (click)="updatecomments()"> Post Comment </button>
   </nav>
-<b><h2>Comments</h2></b>
-<div class="comments">
-    <nav class="navbar navbar-light bg-secondary cmt">
-      <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
-    </nav>
+<b class="mt-5"><h2>Comments</h2></b>
+<div class="comments" *ngFor="let item of comments">
+  <div class="media">
+    <img src="{{item.pic}}" class="mr-3 cimg" alt="...">
+    <div class="media-body">
+      <b><h4 class="mt-0">{{item.name}}</h4></b>
+      {{item.datetime | date}}
+    </div>
+  </div>
+  <div class="cmt">
+    <p>{{item.comment}}</p>
+  </div>
+  <hr>
 </div>
