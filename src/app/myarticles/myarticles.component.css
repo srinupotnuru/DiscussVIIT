@@ -45,3 +45,11 @@ img {
   .carditem:active{
     box-shadow: 2px 2px 20px grey;
   }
+  .card-body{
+      cursor: pointer;
+  }
+  .btn{
+      margin-top: 5px;
+      width: 100px;
+      height: 40px;
+  }

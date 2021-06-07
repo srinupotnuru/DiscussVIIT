@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import  firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import { AppComponent } from '../app.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-myarticles',
   templateUrl: './myarticles.component.html',
   styleUrls: ['./myarticles.component.css']
 })
 export class MyarticlesComponent implements OnInit {
- discussion=[];
+  discussion = [];
   constructor(
     public auth: AngularFireAuth,
     private app: AppComponent,
     private fire: AngularFirestore,
-    private route:Router) {
+    private route: Router) {
     this.auth.authState.subscribe((res) => {
       console.log(res);
     });
@@ -27,15 +27,14 @@ export class MyarticlesComponent implements OnInit {
 
 
   }
-  getdiscussion()
-  {
-    
-    this.fire.collection('questions', ref => 
-  ref.where("uid", "==", this.user.email)).snapshotChanges().subscribe((docs)=>{
-    this.discussion=docs;
-    this.discussion=this.discussion.reverse();
-    
-  });
+  getdiscussion() {
+
+    this.fire.collection('questions', ref =>
+      ref.where("uid", "==", this.user.email)).snapshotChanges().subscribe((docs) => {
+        this.discussion = docs;
+        this.discussion = this.discussion.reverse();
+
+      });
 
 
   }
@@ -51,10 +50,23 @@ export class MyarticlesComponent implements OnInit {
       this.authState = false;
     }
   }
-  display(item)
-  {
-    sessionStorage.setItem("item",JSON.stringify(item));
+  display(item) {
+    sessionStorage.setItem("item", JSON.stringify(item));
     this.route.navigate(["show"]);
+  }
+  delete(item) {
+    var answer = window.confirm("are you sure , wanted to delete?");
+    if (answer) {
+      this.fire.collection("questions").doc(item).delete().then(() => {
+        console.log("Document successfully deleted!");
+      }).catch((error) => {
+        console.error("Error removing document: ", error);
+      });
+    }
+    else {
+     console.log(answer);
+    }
+    
   }
   ngOnInit(): void {
   }
